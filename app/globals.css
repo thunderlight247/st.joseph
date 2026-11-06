@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+
+/* Visible keyboard focus everywhere */
+:focus-visible { outline: 3px solid #0E7C99; outline-offset: 3px; border-radius: 4px; }
+
+/* Lenis required styles (kept inline instead of importing lenis/dist/lenis.css = one fewer request) */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* React Bits "BlurText"-style entrance, done in pure CSS:
+   it renders with the server HTML, needs no hydration, and cannot delay the LCP headline on 3G. */
+@keyframes blur-in {
+  from { opacity: 0; filter: blur(8px); transform: translateY(8px); }
+  to   { opacity: 1; filter: blur(0);   transform: none; }
+}
+.blur-in { display: inline-block; animation: blur-in 0.6s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .blur-in { animation: none; }
+}
