@@ -17,31 +17,31 @@ export default function PatientPortalPreview() {
   return (
     <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
       {/* Top Portal Trust Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 bg-ink px-6 py-4 text-white">
-        <div className="flex items-center gap-3">
-          <div className="grid h-10 w-10 place-items-center rounded-xl bg-tide/20 text-cyan-300">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 bg-ink px-4 sm:px-6 py-3.5 sm:py-4 text-white">
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-tide/20 text-cyan-300">
             <Lock className="h-5 w-5" aria-hidden="true" />
           </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="font-display font-semibold text-white">St. Joseph MyHealth Portal</span>
-              <span className="rounded-full bg-cyan-900/60 px-2 py-0.5 text-xs font-medium text-cyan-200 border border-cyan-700/50">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+              <span className="font-display font-semibold text-white truncate text-sm sm:text-base">St. Joseph MyHealth</span>
+              <span className="rounded-full bg-cyan-900/60 px-2 py-0.5 text-[11px] sm:text-xs font-medium text-cyan-200 border border-cyan-700/50">
                 Interactive Preview
               </span>
             </div>
-            <p className="text-xs text-cyan-100/80">Encrypted Patient Records • Act 843 Compliant</p>
+            <p className="text-[11px] sm:text-xs text-cyan-100/80 truncate">Encrypted Records • Act 843 Compliant</p>
           </div>
         </div>
 
-        <div className="flex items-center gap-3 text-xs">
+        <div className="flex items-center justify-between sm:justify-end gap-3 text-xs pt-1 sm:pt-0 border-t border-slate-700/50 sm:border-0">
           <span className="hidden sm:inline-flex items-center gap-1.5 text-emerald-300">
             <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-            256-bit Intranet Security
+            256-bit Security
           </span>
           <button
             type="button"
             onClick={() => setDemoLoginOpen((v) => !v)}
-            className="cursor-pointer rounded-full bg-tide px-4 py-1.5 font-semibold text-white transition-colors duration-150 hover:bg-white hover:text-ink focus-visible:ring-2 focus-visible:ring-cyan-300"
+            className="cursor-pointer rounded-full bg-tide px-3.5 py-1.5 text-xs font-semibold text-white transition-colors duration-150 hover:bg-white hover:text-ink focus-visible:ring-2 focus-visible:ring-cyan-300 w-full sm:w-auto text-center"
           >
             {simulatedLoggedIn ? 'Logged in as Kwame M.' : 'Simulate Portal Login'}
           </button>
@@ -53,10 +53,10 @@ export default function PatientPortalPreview() {
         <div
           role="region"
           aria-label="Portal Login Simulation"
-          className="border-b border-slate-200 bg-mist p-5 transition-all"
+          className="border-b border-slate-200 bg-mist p-4 sm:p-5 transition-all"
         >
           <div className="mx-auto max-w-xl">
-            <h4 className="font-display text-base font-semibold text-ink">
+            <h4 className="font-display text-sm sm:text-base font-semibold text-ink">
               Try the MyHealth Secure Sign-in
             </h4>
             <p className="mt-1 text-xs text-slate-600">
@@ -69,7 +69,7 @@ export default function PatientPortalPreview() {
                 setSimulatedLoggedIn(true);
                 setDemoLoginOpen(false);
               }}
-              className="mt-3 flex flex-col gap-3 sm:flex-row"
+              className="mt-3 flex flex-col gap-2.5 sm:flex-row"
             >
               <div className="flex-1">
                 <label htmlFor="portal-folder-input" className="sr-only">
@@ -81,12 +81,12 @@ export default function PatientPortalPreview() {
                   value={inputFolder}
                   onChange={(e) => setInputFolder(e.target.value)}
                   placeholder="e.g. SJH-2024-8849"
-                  className="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm text-ink focus:border-tide focus:outline-none focus:ring-2 focus:ring-tide/20"
+                  className="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-base sm:text-sm text-ink focus:border-tide focus:outline-none focus:ring-2 focus:ring-tide/20"
                 />
               </div>
               <button
                 type="submit"
-                className="cursor-pointer rounded-xl bg-ink px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-tide"
+                className="cursor-pointer rounded-xl bg-ink px-5 py-2.5 sm:py-2 text-sm font-semibold text-white transition-colors hover:bg-tide"
               >
                 Sign in to Demo
               </button>
@@ -96,38 +96,42 @@ export default function PatientPortalPreview() {
       )}
 
       {/* Patient Header Card (Simulated Patient) */}
-      <div className="bg-slate-50 border-b border-slate-200 px-6 py-4">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="grid h-11 w-11 place-items-center rounded-full bg-tide/10 text-tide font-bold font-display text-lg">
+      <div className="bg-slate-50 border-b border-slate-200 px-4 sm:px-6 py-3 sm:py-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="grid h-10 w-10 sm:h-11 sm:w-11 shrink-0 place-items-center rounded-full bg-tide/10 text-tide font-bold font-display text-base sm:text-lg">
               KM
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-ink">{samplePatient.name}</span>
+                <span className="font-semibold text-ink text-sm sm:text-base truncate">{samplePatient.name}</span>
                 <span className="text-xs text-slate-500 font-mono">({samplePatient.folderNumber})</span>
               </div>
-              <p className="text-xs text-slate-600">Last visit: {samplePatient.lastVisit}</p>
+              <p className="text-xs text-slate-600 truncate">Last visit: {samplePatient.lastVisit}</p>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-900 border border-emerald-300">
-              <BadgeCheck className="h-4 w-4 text-emerald-700" aria-hidden="true" />
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-900 border border-emerald-300">
+              <BadgeCheck className="h-3.5 w-3.5 text-emerald-700" aria-hidden="true" />
               {samplePatient.nhisStatus}
             </span>
           </div>
         </div>
       </div>
 
-      {/* Accessible Tabs Navigation */}
-      <div className="border-b border-slate-200 px-6 pt-2 bg-white">
-        <div role="tablist" aria-label="Portal feature preview" className="flex flex-wrap gap-2 sm:gap-6">
+      {/* Accessible Horizontal-Scrollable Tabs on Mobile */}
+      <div className="border-b border-slate-200 px-4 sm:px-6 pt-1 bg-white">
+        <div
+          role="tablist"
+          aria-label="Portal feature preview"
+          className="flex overflow-x-auto gap-3 sm:gap-6 no-scrollbar pb-px"
+        >
           {(
             [
-              ['lab', 'Lab Investigations', FlaskConical],
+              ['lab', 'Lab Results', FlaskConical],
               ['nhis', 'NHIS Status', BadgeCheck],
-              ['prescriptions', 'Active Prescriptions', Pill],
+              ['prescriptions', 'Prescriptions', Pill],
               ['privacy', 'Privacy & Security', ShieldCheck],
             ] as const
           ).map(([key, label, Icon]) => {
@@ -141,13 +145,13 @@ export default function PatientPortalPreview() {
                 aria-controls={`panel-${key}`}
                 tabIndex={isSelected ? 0 : -1}
                 onClick={() => setActiveTab(key)}
-                className={`flex cursor-pointer items-center gap-2 border-b-2 py-3.5 text-sm font-semibold transition-colors duration-150 ${
+                className={`flex shrink-0 cursor-pointer items-center gap-1.5 sm:gap-2 border-b-2 py-3 text-xs sm:text-sm font-semibold whitespace-nowrap transition-colors duration-150 ${
                   isSelected
                     ? 'border-tide text-tide'
                     : 'border-transparent text-slate-600 hover:border-slate-300 hover:text-ink'
                 }`}
               >
-                <Icon className="h-4 w-4" aria-hidden="true" />
+                <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
                 <span>{label}</span>
               </button>
             );
@@ -156,7 +160,7 @@ export default function PatientPortalPreview() {
       </div>
 
       {/* Tab Panels */}
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         {/* Panel 1: Lab Investigations */}
         {activeTab === 'lab' && (
           <div id="panel-lab" role="tabpanel" aria-labelledby="tab-lab" tabIndex={0} className="space-y-4">

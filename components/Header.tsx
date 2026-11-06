@@ -22,13 +22,13 @@ export default function Header() {
   return (
     // PERF: solid background instead of backdrop-blur. Blur filters are expensive on low-end phones.
     <header className="sticky top-0 z-40 border-b border-slate-200 bg-white">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <a href="#top" className="flex items-center gap-3" aria-label={`${HOSPITAL.name}, home`}>
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
+        <a href="#top" className="flex items-center gap-2.5 sm:gap-3 min-w-0" aria-label={`${HOSPITAL.name}, home`}>
           {/* Decorative here: the link already has an aria-label with the hospital name */}
-          <Image src={IMAGES.logo.src} alt="" width={IMAGES.logo.width} height={IMAGES.logo.height} sizes="44px" className="h-12 w-auto" />
-          <span className="leading-tight">
-            <span className="block font-display text-lg font-semibold text-ink">{HOSPITAL.name}</span>
-            <span className="block text-xs text-slate-600">
+          <Image src={IMAGES.logo.src} alt="" width={IMAGES.logo.width} height={IMAGES.logo.height} sizes="44px" className="h-10 w-auto sm:h-12 shrink-0" />
+          <span className="leading-tight min-w-0">
+            <span className="block font-display text-base sm:text-lg font-semibold text-ink truncate">{HOSPITAL.name}</span>
+            <span className="block text-xs text-slate-600 truncate">
               {HOSPITAL.town}, {HOSPITAL.region}
             </span>
           </span>
@@ -66,7 +66,7 @@ export default function Header() {
           <m.nav
             id="mobile-menu"
             aria-label="Mobile"
-            className="overflow-hidden border-t border-slate-200 bg-white md:hidden"
+            className="max-h-[calc(100vh-4.5rem)] overflow-y-auto border-t border-slate-200 bg-white md:hidden"
             initial={{ height: 0 }}
             animate={{ height: 'auto' }}
             exit={{ height: 0 }}

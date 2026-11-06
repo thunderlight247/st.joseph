@@ -150,18 +150,18 @@ export default function AppointmentBooking() {
       <div
         role="region"
         aria-label="Appointment Confirmation"
-        className="rounded-3xl border-2 border-emerald-500/30 bg-white p-6 shadow-xl sm:p-8"
+        className="rounded-3xl border-2 border-emerald-500/30 bg-white p-4 sm:p-6 sm:p-8 shadow-xl"
       >
-        <div className="flex items-start justify-between gap-4 border-b border-slate-100 pb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
           <div className="flex items-center gap-3">
-            <div className="grid h-12 w-12 place-items-center rounded-2xl bg-emerald-100 text-emerald-800">
+            <div className="grid h-11 w-11 sm:h-12 sm:w-12 shrink-0 place-items-center rounded-2xl bg-emerald-100 text-emerald-800">
               <CheckCircle2 className="h-6 w-6" aria-hidden="true" />
             </div>
             <div>
               <span className="inline-block rounded-full bg-emerald-100 px-3 py-0.5 text-xs font-semibold text-emerald-800">
                 Booking Confirmed
               </span>
-              <h3 className="font-display text-2xl font-bold text-ink">
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-ink">
                 We look forward to welcoming you
               </h3>
             </div>
@@ -178,20 +178,20 @@ export default function AppointmentBooking() {
         </div>
 
         {/* Reference Highlight */}
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-mist p-5 border border-slate-200">
+        <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl bg-mist p-4 sm:p-5 border border-slate-200">
           <div>
             <span className="text-xs font-medium uppercase tracking-wider text-slate-500">
               Your Booking Reference
             </span>
-            <p className="font-mono text-2xl font-bold tracking-tight text-ink">
+            <p className="font-mono text-2xl sm:text-3xl font-bold tracking-tight text-ink">
               {confirmedBooking.reference}
             </p>
-            <p className="text-xs text-slate-600">Present this reference code or your phone number at the OPD Records counter.</p>
+            <p className="text-xs text-slate-600 mt-1">Present this reference code or your phone number at the OPD Records counter.</p>
           </div>
           <button
             type="button"
             onClick={copyBookingReference}
-            className="inline-flex cursor-pointer items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-ink shadow-sm transition-colors hover:border-tide"
+            className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-ink shadow-sm transition-colors hover:border-tide w-full sm:w-auto"
           >
             <Copy className="h-4 w-4" aria-hidden="true" />
             <span>{copiedRef ? 'Copied code!' : 'Copy Reference'}</span>
@@ -199,20 +199,20 @@ export default function AppointmentBooking() {
         </div>
 
         {/* Appointment Details */}
-        <dl className="mt-6 grid gap-4 sm:grid-cols-2 text-sm border-b border-slate-100 pb-6">
-          <div className="rounded-xl border border-slate-200 p-4">
+        <dl className="mt-5 sm:mt-6 grid gap-3 sm:gap-4 sm:grid-cols-2 text-sm border-b border-slate-100 pb-5 sm:pb-6">
+          <div className="rounded-xl border border-slate-200 p-3.5 sm:p-4">
             <dt className="text-xs font-medium text-slate-500">Patient Full Name</dt>
             <dd className="mt-1 font-semibold text-ink">{confirmedBooking.details.fullName}</dd>
           </div>
-          <div className="rounded-xl border border-slate-200 p-4">
+          <div className="rounded-xl border border-slate-200 p-3.5 sm:p-4">
             <dt className="text-xs font-medium text-slate-500">Department / Clinic</dt>
             <dd className="mt-1 font-semibold text-ink">{confirmedBooking.departmentName}</dd>
           </div>
-          <div className="rounded-xl border border-slate-200 p-4">
+          <div className="rounded-xl border border-slate-200 p-3.5 sm:p-4">
             <dt className="text-xs font-medium text-slate-500">Assigned Doctor</dt>
             <dd className="mt-1 font-semibold text-ink">{confirmedBooking.doctorName}</dd>
           </div>
-          <div className="rounded-xl border border-slate-200 p-4">
+          <div className="rounded-xl border border-slate-200 p-3.5 sm:p-4">
             <dt className="text-xs font-medium text-slate-500">Date & Slot</dt>
             <dd className="mt-1 font-semibold text-ink">
               {confirmedBooking.details.date} (
@@ -227,9 +227,9 @@ export default function AppointmentBooking() {
         </dl>
 
         {/* What to bring checklist */}
-        <div className="mt-6 rounded-2xl bg-amber-50/70 p-5 border border-amber-200 text-xs text-amber-950">
+        <div className="mt-5 rounded-2xl bg-amber-50/70 p-4 sm:p-5 border border-amber-200 text-xs text-amber-950">
           <p className="font-semibold text-sm text-amber-900 flex items-center gap-2">
-            <ShieldCheck className="h-4 w-4 text-amber-800" aria-hidden="true" />
+            <ShieldCheck className="h-4 w-4 text-amber-800 shrink-0" aria-hidden="true" />
             Checklist for your appointment day:
           </p>
           <ul className="mt-2.5 space-y-1.5 list-disc list-inside">
@@ -239,7 +239,7 @@ export default function AppointmentBooking() {
           </ul>
         </div>
 
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
+        <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
           <button
             type="button"
             onClick={() => {
@@ -256,14 +256,14 @@ export default function AppointmentBooking() {
                 notes: '',
               });
             }}
-            className="cursor-pointer text-sm font-semibold text-tide underline hover:text-ink"
+            className="cursor-pointer text-sm font-semibold text-tide underline hover:text-ink text-center py-2"
           >
             Book another appointment
           </button>
 
           <a
             href={CONTACTS.main[0].href}
-            className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-tide"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-tide w-full sm:w-auto text-center"
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
             Call OPD Desk ({CONTACTS.main[0].display})
@@ -278,7 +278,7 @@ export default function AppointmentBooking() {
       onSubmit={handleSubmit}
       noValidate
       aria-label="Patient appointment booking form"
-      className="rounded-3xl border border-slate-200 bg-white p-6 shadow-xl sm:p-8"
+      className="rounded-3xl border border-slate-200 bg-white p-4 sm:p-6 sm:p-8 shadow-xl"
     >
       <div className="flex items-center justify-between gap-4 border-b border-slate-100 pb-5">
         <div>
@@ -341,7 +341,7 @@ export default function AppointmentBooking() {
                   doctor: 'any',
                 }));
               }}
-              className="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm font-medium text-ink transition-colors focus:border-tide focus:outline-none focus:ring-2 focus:ring-tide/20"
+              className="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-base sm:text-sm font-medium text-ink transition-colors focus:border-tide focus:outline-none focus:ring-2 focus:ring-tide/20"
             >
               {CLINIC_DEPARTMENTS.map((dept) => (
                 <option key={dept.id} value={dept.id}>
@@ -359,7 +359,7 @@ export default function AppointmentBooking() {
               id={`${formId}-doctor`}
               value={form.doctor}
               onChange={(e) => setForm((prev) => ({ ...prev, doctor: e.target.value }))}
-              className="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm font-medium text-ink transition-colors focus:border-tide focus:outline-none focus:ring-2 focus:ring-tide/20"
+              className="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-base sm:text-sm font-medium text-ink transition-colors focus:border-tide focus:outline-none focus:ring-2 focus:ring-tide/20"
             >
               <option value="any">First Available Attending Doctor</option>
               {DOCTORS.map((doc) => (
@@ -386,7 +386,7 @@ export default function AppointmentBooking() {
                 aria-invalid={!!errors.date}
                 aria-describedby={errors.date ? `${formId}-date-err` : undefined}
                 onChange={(e) => setForm((prev) => ({ ...prev, date: e.target.value }))}
-                className="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-ink transition-colors focus:border-tide focus:outline-none focus:ring-2 focus:ring-tide/20"
+                className="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-base sm:text-sm text-ink transition-colors focus:border-tide focus:outline-none focus:ring-2 focus:ring-tide/20"
               />
             </div>
             {errors.date && (
@@ -404,7 +404,7 @@ export default function AppointmentBooking() {
               id={`${formId}-timeSlot`}
               value={form.timeSlot}
               onChange={(e) => setForm((prev) => ({ ...prev, timeSlot: e.target.value }))}
-              className="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm font-medium text-ink transition-colors focus:border-tide focus:outline-none focus:ring-2 focus:ring-tide/20"
+              className="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-base sm:text-sm font-medium text-ink transition-colors focus:border-tide focus:outline-none focus:ring-2 focus:ring-tide/20"
             >
               <option value="morning">Morning (08:30 – 11:30)</option>
               <option value="midday">Midday (12:00 – 14:30)</option>
@@ -427,7 +427,7 @@ export default function AppointmentBooking() {
               aria-invalid={!!errors.fullName}
               aria-describedby={errors.fullName ? `${formId}-fullName-err` : undefined}
               onChange={(e) => setForm((prev) => ({ ...prev, fullName: e.target.value }))}
-              className="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-ink transition-colors focus:border-tide focus:outline-none focus:ring-2 focus:ring-tide/20"
+              className="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-base sm:text-sm text-ink transition-colors focus:border-tide focus:outline-none focus:ring-2 focus:ring-tide/20"
             />
             {errors.fullName && (
               <p id={`${formId}-fullName-err`} className="mt-1 text-xs text-alert font-medium">
@@ -448,7 +448,7 @@ export default function AppointmentBooking() {
               aria-invalid={!!errors.phone}
               aria-describedby={errors.phone ? `${formId}-phone-err` : `${formId}-phone-hint`}
               onChange={(e) => setForm((prev) => ({ ...prev, phone: e.target.value }))}
-              className="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-ink transition-colors focus:border-tide focus:outline-none focus:ring-2 focus:ring-tide/20"
+              className="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-base sm:text-sm text-ink transition-colors focus:border-tide focus:outline-none focus:ring-2 focus:ring-tide/20"
             />
             {errors.phone ? (
               <p id={`${formId}-phone-err`} className="mt-1 text-xs text-alert font-medium">

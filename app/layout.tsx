@@ -49,7 +49,7 @@ const jsonLd = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-GH">
-      <body className={`${display.variable} ${body.variable} bg-white pb-16 font-sans text-slate-800 antialiased md:pb-0`}>
+      <body className={`${display.variable} ${body.variable} bg-white pb-24 font-sans text-slate-800 antialiased md:pb-0`}>
         <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2">
           Skip to main content
         </a>

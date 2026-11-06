@@ -55,7 +55,7 @@ export default function ServicesDirectory() {
   return (
     <div>
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div role="group" aria-label="Filter services" className="flex gap-2">
+        <div role="group" aria-label="Filter services" className="flex flex-wrap gap-2">
           {(
             [
               ['all', 'All services'],
@@ -67,7 +67,7 @@ export default function ServicesDirectory() {
               type="button"
               aria-pressed={filter === value}
               onClick={() => setFilter(value)}
-              className={`cursor-pointer rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-150 ${
+              className={`cursor-pointer rounded-full border px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition-colors duration-150 ${
                 filter === value ? 'border-ink bg-ink text-white shadow-sm' : 'border-slate-300 bg-white text-slate-700 hover:border-tide hover:text-ink'
               }`}
             >
@@ -84,7 +84,7 @@ export default function ServicesDirectory() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search services"
-            className="w-full rounded-full border border-slate-300 bg-white py-2 pl-9 pr-8 text-sm transition-colors focus:border-tide focus:outline-none focus:ring-2 focus:ring-tide/20"
+            className="w-full rounded-full border border-slate-300 bg-white py-2 pl-9 pr-8 text-base sm:text-sm transition-colors focus:border-tide focus:outline-none focus:ring-2 focus:ring-tide/20"
           />
           {query ? (
             <button

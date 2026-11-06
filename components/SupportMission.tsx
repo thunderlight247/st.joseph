@@ -59,7 +59,7 @@ export default function SupportMission() {
   }
 
   return (
-    <div className="rounded-2xl bg-white p-5 text-slate-800 shadow-xl sm:p-6">
+    <div className="rounded-2xl bg-white p-4 sm:p-6 text-slate-800 shadow-xl">
       <div className="flex items-center gap-2 font-display text-xl font-semibold text-ink">
         <HeartHandshake className="h-6 w-6 text-tide" aria-hidden="true" />
         Sponsor NHIS registrations

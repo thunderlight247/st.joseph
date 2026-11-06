@@ -5,15 +5,15 @@ export default function TrustBanner() {
   const icons = [ShieldCheck, BadgeCheck, Hospital, HeartPulse];
 
   return (
-    <section aria-label="Hospital Accreditations and Trust Credentials" className="border-y border-slate-200 bg-white py-8">
+    <section aria-label="Hospital Accreditations and Trust Credentials" className="border-y border-slate-200 bg-white py-6 sm:py-8">
       <div className="mx-auto max-w-6xl px-4">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-3.5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {TRUST_CREDENTIALS.map((cred, idx) => {
             const Icon = icons[idx % icons.length];
             return (
               <div
                 key={cred.badge}
-                className="flex items-start gap-3.5 rounded-2xl border border-slate-100 bg-mist/40 p-4 transition-colors hover:border-tide/30 hover:bg-mist/70"
+                className="flex items-start gap-3 rounded-2xl border border-slate-100 bg-mist/40 p-3.5 sm:p-4 transition-colors hover:border-tide/30 hover:bg-mist/70"
               >
                 <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-tide/10 text-tide">
                   <Icon className="h-5 w-5" aria-hidden="true" />

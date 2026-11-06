@@ -21,30 +21,30 @@ export default function HomePage() {
       <section aria-labelledby="hero-title" className="bg-mist">
         <div className="mx-auto grid max-w-6xl gap-8 px-4 pt-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:pt-16">
           <div className="pb-4 lg:pb-16">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-1 text-xs font-semibold text-tide shadow-sm border border-slate-200">
-              <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-              <span>Accredited Catholic Mission Hospital • Nkwanta, Oti Region</span>
+            <div className="mb-4 inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-white px-3 sm:px-3.5 py-1 text-[11px] sm:text-xs font-semibold text-tide shadow-sm border border-slate-200 max-w-full">
+              <ShieldCheck className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <span className="truncate">Accredited Catholic Mission Hospital • Nkwanta, Oti</span>
             </div>
 
             <BlurText
               id="hero-title"
               text="Care you can trust, close to home in Nkwanta"
-              className="font-display text-4xl font-semibold leading-tight text-ink sm:text-5xl"
+              className="font-display text-3xl font-semibold leading-tight text-ink sm:text-4xl lg:text-5xl"
             />
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-700">
+            <p className="mt-4 sm:mt-5 max-w-xl text-base sm:text-lg leading-relaxed text-slate-700">
               A {HOSPITAL.beds}-bed faith-based hospital serving Nkwanta and the Oti Region, run with the National Catholic Health
               Service and the Diocese of Jasikan. Compassionate, accessible healthcare under NHIS.
             </p>
 
-            <div className="mt-8 max-w-md rounded-2xl bg-ink p-5 text-white shadow-lg">
-              <p className="flex items-center gap-2 text-sm text-cyan-100 font-medium">
-                <Phone className="h-4 w-4" aria-hidden="true" />
+            <div className="mt-6 sm:mt-8 max-w-md rounded-2xl bg-ink p-4 sm:p-5 text-white shadow-lg">
+              <p className="flex items-center gap-2 text-xs sm:text-sm text-cyan-100 font-medium">
+                <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
                 24/7 Outpatient & Emergency Lines
               </p>
-              <ul className="mt-3 space-y-1">
+              <ul className="mt-2.5 sm:mt-3 space-y-1">
                 {CONTACTS.main.map((c) => (
                   <li key={c.href}>
-                    <a href={c.href} className="block py-1 text-2xl font-semibold tracking-tight underline-offset-4 transition-colors hover:text-cyan-200">
+                    <a href={c.href} className="block py-0.5 sm:py-1 text-xl sm:text-2xl font-semibold tracking-tight underline-offset-4 transition-colors hover:text-cyan-200">
                       {c.display}
                     </a>
                   </li>
@@ -52,17 +52,17 @@ export default function HomePage() {
               </ul>
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center gap-4">
+            <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <a
                 href="#book"
-                className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-tide px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors duration-150 hover:bg-ink focus-visible:ring-2 focus-visible:ring-tide focus-visible:ring-offset-2"
+                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-tide px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors duration-150 hover:bg-ink focus-visible:ring-2 focus-visible:ring-tide focus-visible:ring-offset-2 w-full sm:w-auto text-center"
               >
                 <Calendar className="h-4 w-4" aria-hidden="true" />
                 Book an Appointment
               </a>
               <a
                 href="#services"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-tide transition-colors duration-150 hover:text-ink"
+                className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-tide transition-colors duration-150 hover:text-ink py-2 text-center"
               >
                 See what NHIS covers
                 <ChevronDown className="h-4 w-4" aria-hidden="true" />
@@ -306,7 +306,7 @@ export default function HomePage() {
                   blurDataURL={BLUR_DATA_URL}
                   className="object-cover"
                 />
-                <span className="absolute inset-x-0 bottom-0 bg-ink/80 px-3 py-1.5 text-sm font-medium text-white">{photo.caption}</span>
+                <span className="absolute inset-x-0 bottom-0 bg-ink/80 px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm font-medium text-white truncate">{photo.caption}</span>
               </li>
             ))}
           </ul>
@@ -334,22 +334,22 @@ export default function HomePage() {
               href={mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 rounded-full bg-tide px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-ink"
+              className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-tide px-5 py-3 text-sm font-semibold text-white transition-colors duration-150 hover:bg-ink w-full sm:w-auto text-center"
             >
               <span>Open in Google Maps</span>
               <span className="sr-only">(opens in a new tab)</span>
             </a>
           </div>
 
-          <div className="rounded-2xl bg-white p-6 shadow-sm border border-slate-200/60">
+          <div className="rounded-2xl bg-white p-4 sm:p-6 shadow-sm border border-slate-200/60">
             <h3 className="font-display text-xl font-semibold text-ink">Phone numbers & Inquiries</h3>
             <ul className="mt-4 divide-y divide-slate-200">
               {CONTACTS.main.map((c) => (
                 <li key={c.href} className="py-3">
-                  <a href={c.href} className="flex items-center justify-between gap-3">
-                    <span className="text-sm text-slate-600">{c.label}</span>
-                    <span className="inline-flex items-center gap-2 text-lg font-semibold text-ink">
-                      <Phone className="h-4 w-4 text-tide" aria-hidden="true" />
+                  <a href={c.href} className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-3">
+                    <span className="text-xs sm:text-sm text-slate-600">{c.label}</span>
+                    <span className="inline-flex items-center gap-2 text-base sm:text-lg font-semibold text-ink">
+                      <Phone className="h-4 w-4 text-tide shrink-0" aria-hidden="true" />
                       {c.display}
                     </span>
                   </a>
@@ -357,11 +357,11 @@ export default function HomePage() {
               ))}
               <li className="py-3">
                 <a href={CONTACTS.administrator.href} className="block">
-                  <span className="block text-sm text-slate-600">
+                  <span className="block text-xs sm:text-sm text-slate-600">
                     {CONTACTS.administrator.label}, {CONTACTS.administrator.person}
                   </span>
-                  <span className="mt-1 inline-flex items-center gap-2 text-lg font-semibold text-ink">
-                    <Phone className="h-4 w-4 text-tide" aria-hidden="true" />
+                  <span className="mt-1 inline-flex items-center gap-2 text-base sm:text-lg font-semibold text-ink">
+                    <Phone className="h-4 w-4 text-tide shrink-0" aria-hidden="true" />
                     {CONTACTS.administrator.display}
                   </span>
                 </a>
