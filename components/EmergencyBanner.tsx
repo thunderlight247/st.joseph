@@ -35,7 +35,7 @@ export default function EmergencyBanner() {
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="-m-2 rounded p-2 hover:bg-white/10"
+              className="-m-1 flex min-h-[36px] min-w-[36px] items-center justify-center rounded-lg p-1.5 transition-colors hover:bg-white/15"
               aria-label="Dismiss notice"
             >
               <X className="h-4 w-4" aria-hidden="true" />

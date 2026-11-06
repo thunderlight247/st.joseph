@@ -4,6 +4,12 @@
 
 :root { color-scheme: light; }
 
+/* Ensure sticky header and mobile call bar do not obscure anchor targets or focus */
+html {
+  scroll-padding-top: 5rem;
+  scroll-padding-bottom: 4.5rem;
+}
+
 /* Visible keyboard focus everywhere */
 :focus-visible { outline: 3px solid #0E7C99; outline-offset: 3px; border-radius: 4px; }
 

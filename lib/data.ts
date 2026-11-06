@@ -26,9 +26,10 @@ export const CONTACTS = {
 
 export const NAV_LINKS = [
   { href: '#services', label: 'Services & NHIS' },
+  { href: '#doctors', label: 'Doctors & Specialists' },
+  { href: '#book', label: 'Book Appointment' },
+  { href: '#portal', label: 'Patient Portal' },
   { href: '#support', label: 'Support our mission' },
-  { href: '#news', label: 'News' },
-  { href: '#campus', label: 'Our hospital' },
   { href: '#visit', label: 'Visit us' },
 ] as const;
 
@@ -114,4 +115,139 @@ export const CAMPUS = [
   { src: '/images/waiting-area.jpg', alt: 'Waiting area with blue seats outside the consulting and history rooms', caption: 'Waiting area', width: 720, height: 579 },
   { src: '/images/entrance.jpg', alt: 'Glass entrance doors and hand-washing basin at the hospital', caption: 'Main entrance', width: 720, height: 566 },
   { src: '/images/garden-walkway.jpg', alt: 'A concrete walkway between trimmed hedges leading to a hospital building', caption: 'Garden walkway', width: 720, height: 971 },
+] as const;
+
+// --- Doctor & Specialist Profiles ------------------------------------------------------------
+export type Doctor = {
+  id: string;
+  name: string;
+  title: string;
+  specialty: string;
+  qualifications: string;
+  registrationNumber: string;
+  experienceYears: number;
+  languages: string[];
+  daysAvailable: string;
+  summary: string;
+  nhisCovered: boolean;
+};
+
+export const DOCTORS: Doctor[] = [
+  {
+    id: 'dr-kojo-boateng',
+    name: 'Dr. Kojo Boateng',
+    title: 'Consultant Specialist Obstetrician & Gynaecologist',
+    specialty: 'Obstetrics & Gynaecology',
+    qualifications: 'MB ChB, FWACS, FGCS',
+    registrationNumber: 'MDC/RN/08421',
+    experienceYears: 14,
+    languages: ['English', 'Twi', 'Ewe'],
+    daysAvailable: 'Mon, Wed & Fri (08:30 – 15:30)',
+    summary: 'Lead clinician for maternal-foetal care, high-risk pregnancies, reproductive endocrinology, and minimally invasive obstetric surgery.',
+    nhisCovered: true,
+  },
+  {
+    id: 'dr-akosua-boakye',
+    name: 'Dr. Akosua Serwaa Boakye',
+    title: 'Senior Medical Officer, Paediatric & Child Health',
+    specialty: 'Paediatrics & Neonatal Care',
+    qualifications: 'MB ChB, MWACP (Paediatrics)',
+    registrationNumber: 'MDC/RN/11294',
+    experienceYears: 9,
+    languages: ['English', 'Twi'],
+    daysAvailable: 'Mon to Thu (08:00 – 14:00)',
+    summary: 'Dedicated paediatrician specializing in neonatal resuscitation, childhood respiratory illnesses, immunization protocols, and pediatric nutrition.',
+    nhisCovered: true,
+  },
+  {
+    id: 'sr-dr-miriam-addo',
+    name: 'Sr. Dr. Miriam Addo, HDR',
+    title: 'Senior Medical Officer, Family Medicine',
+    specialty: 'Family Medicine & Chronic Care',
+    qualifications: 'MB ChB, MPH, Dip. Family Med',
+    registrationNumber: 'MDC/RN/09873',
+    experienceYears: 11,
+    languages: ['English', 'Twi', 'Likpakpa'],
+    daysAvailable: 'Tue, Thu & Sat (08:30 – 16:00)',
+    summary: 'Community medicine advocate managing hypertension, diabetes clinics, geriatric wellness, and outpatient preventative health programmes.',
+    nhisCovered: true,
+  },
+  {
+    id: 'dr-emmanuel-osei',
+    name: 'Dr. Emmanuel K. Osei',
+    title: 'Consultant General Surgeon & Trauma Lead',
+    specialty: 'General Surgery & Emergency Trauma',
+    qualifications: 'MB ChB, FGCS (Surgery)',
+    registrationNumber: 'MDC/RN/07119',
+    experienceYears: 16,
+    languages: ['English', 'Ewe', 'French'],
+    daysAvailable: 'Mon, Tue & Thu (09:00 – 16:00)',
+    summary: 'Head of surgical theater and acute trauma management, specializing in emergency abdominal interventions, hernia repairs, and wound reconstructive care.',
+    nhisCovered: true,
+  },
+];
+
+// --- Trust Credentials & Regulatory Badges ---------------------------------------------------
+export const TRUST_CREDENTIALS = [
+  {
+    badge: 'Ministry of Health',
+    title: 'MoH Accredited Facility',
+    detail: 'Fully certified primary hospital and emergency referral facility for Nkwanta South and northern Oti Region.',
+  },
+  {
+    badge: 'NHIA Credentialed',
+    title: 'NHIS Provider #VR-NKW-004',
+    detail: 'Accredited provider accepting valid NHIS biometric cards for outpatient, maternal, child and inpatient services.',
+  },
+  {
+    badge: 'HeFRA Licensed',
+    title: 'License #HF-VR-0192',
+    detail: 'Inspected and certified by the Health Facilities Regulatory Agency under the Health Institutions and Facilities Act.',
+  },
+  {
+    badge: 'CHAG / NCHS Member',
+    title: 'Faith-Based Catholic Mission',
+    detail: 'Operated under the National Catholic Health Service and Diocese of Jasikan, prioritizing compassionate, non-profit community health.',
+  },
+] as const;
+
+// --- Patient Portal Mock Data & Highlights ----------------------------------------------------
+export const PATIENT_PORTAL_HIGHLIGHTS = {
+  title: 'MyHealth Patient Portal',
+  subtitle: 'Fast, secure, and confidential digital access to your hospital care history.',
+  features: [
+    'View validated lab results (haemoglobin, blood glucose, ultrasound reports) as soon as clinicians verify them.',
+    'Check real-time NHIS renewal expiry dates and family member registration status.',
+    'Access active prescriptions with dosage instructions and pharmacy collection alerts.',
+    'Review clinical appointment dates with reminder SMS notifications.',
+    'Request medical referral summaries and lab slips securely from home.',
+  ],
+  samplePatient: {
+    name: 'Kwame Mensah',
+    folderNumber: 'SJH-2024-8849',
+    nhisStatus: 'Active (Expires 14 Nov 2027)',
+    lastVisit: '24 Oct 2026 — OPD General Clinic',
+    recentLab: {
+      test: 'Full Blood Count & Malaria Parasite Screen',
+      date: '24 Oct 2026',
+      status: 'Reviewed by Clinician',
+      hb: '13.4 g/dL (Normal: 12.0 - 15.5)',
+      malaria: 'Negative (No Plasmodium parasites seen)',
+    },
+    activePrescription: {
+      medication: 'Amoxicillin / Clavulanic Acid 625mg',
+      dosage: '1 tablet twice daily for 5 days',
+      dispensedBy: 'St. Joseph Main Pharmacy',
+    },
+  },
+};
+
+// --- Clinic Departments for Appointment Booking ----------------------------------------------
+export const CLINIC_DEPARTMENTS = [
+  { id: 'opd', name: 'General Outpatient (OPD)', days: 'Monday – Saturday', fee: 'Covered by NHIS' },
+  { id: 'obgyn', name: 'Specialist Obstetrics & Gynaecology', days: 'Mon, Wed, Fri', fee: 'Covered by NHIS' },
+  { id: 'paediatrics', name: 'Paediatric & Child Health', days: 'Mon – Thu', fee: 'Covered by NHIS' },
+  { id: 'surgery', name: 'General Surgery & Trauma Consult', days: 'Mon, Tue, Thu', fee: 'Covered by NHIS' },
+  { id: 'maternity', name: 'Antenatal & Maternity Care', days: 'Monday – Friday', fee: 'Covered by NHIS' },
+  { id: 'ultrasound', name: 'Doppler & Diagnostic Ultrasound', days: 'Monday – Friday', fee: 'NHIS partial / OPD rate' },
 ] as const;

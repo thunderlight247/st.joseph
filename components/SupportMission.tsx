@@ -75,6 +75,7 @@ export default function SupportMission() {
           aria-valuemin={0}
           aria-valuemax={SPONSORSHIP_DEMO.goal}
           aria-valuenow={SPONSORSHIP_DEMO.sponsored}
+          aria-valuetext={`${SPONSORSHIP_DEMO.sponsored} of ${SPONSORSHIP_DEMO.goal} registrations sponsored`}
           aria-label="Registrations sponsored"
           className="mt-2 h-3 overflow-hidden rounded-full bg-mist"
         >
@@ -88,7 +89,7 @@ export default function SupportMission() {
           {OPTIONS.map((n) => (
             <label key={n} className="block">
               <input type="radio" name="count" value={n} checked={count === n} onChange={() => setCount(n)} className="peer sr-only" />
-              <span className="block cursor-pointer rounded-xl border border-slate-300 py-3 text-center text-lg font-semibold peer-checked:border-ink peer-checked:bg-ink peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-tide peer-focus-visible:ring-offset-2">
+              <span className="block cursor-pointer rounded-xl border border-slate-300 py-3 text-center text-lg font-semibold transition-colors duration-150 hover:border-tide hover:bg-mist/40 peer-checked:border-ink peer-checked:bg-ink peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-tide peer-focus-visible:ring-offset-2">
                 {n}
               </span>
             </label>
@@ -107,7 +108,7 @@ export default function SupportMission() {
           ).map(([value, label, Icon]) => (
             <label key={value} className="block">
               <input type="radio" name="method" value={value} checked={method === value} onChange={() => setMethod(value)} className="peer sr-only" />
-              <span className="flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-slate-300 py-3 text-sm font-medium peer-checked:border-tide peer-checked:bg-tide/10 peer-checked:text-ink peer-focus-visible:ring-2 peer-focus-visible:ring-tide peer-focus-visible:ring-offset-2">
+              <span className="flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-slate-300 py-3 text-sm font-medium transition-colors duration-150 hover:border-tide hover:bg-mist/40 peer-checked:border-tide peer-checked:bg-tide/10 peer-checked:text-ink peer-focus-visible:ring-2 peer-focus-visible:ring-tide peer-focus-visible:ring-offset-2">
                 <Icon className="h-4 w-4" aria-hidden="true" />
                 {label}
               </span>
@@ -120,7 +121,7 @@ export default function SupportMission() {
         type="button"
         onClick={donate}
         disabled={status === 'loading'}
-        className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-ink py-3.5 text-base font-semibold text-white hover:bg-tide disabled:opacity-70"
+        className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-ink py-3.5 text-base font-semibold text-white transition-colors duration-150 hover:bg-tide active:scale-[0.99] disabled:opacity-70 disabled:pointer-events-none"
       >
         {status === 'loading' ? <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" /> : null}
         {status === 'loading' ? 'Starting payment' : `Give GHS ${total}`}
